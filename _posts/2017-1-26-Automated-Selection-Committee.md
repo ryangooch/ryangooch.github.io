@@ -214,7 +214,7 @@ all_68 = np.append(auto_bid_teams,at_large_teams)
 final_68 = summary_df[summary_df['Team'].isin(all_68)]
 ```
 
-This is where things become a little less automated unfortunately. Since the NCAA Tournament has playin teams, we
+This is where things become a little less automated unfortunately. Since the NCAA Tournament has play-in teams, we
 must consider extra seeds at the 11 and 16 spots. Recall that there are essentially 4 sets of seeds 1-16. It would
 have been simple to generate a list of seed labels with which to append to the dataframe, but I opted for a manual 
 approach for easier visualization.
