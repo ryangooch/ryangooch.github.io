@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Automated Bracket Seeding with Python and Pandas
+date: 2017-1-26 16:43:00
 ---
 
 ## Project Summary
