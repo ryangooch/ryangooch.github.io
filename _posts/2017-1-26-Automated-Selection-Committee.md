@@ -78,7 +78,7 @@ University. Some names that were encountered:
 I briefly explored string matching using [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance), via the
 capable and very handy python package [fuzzywuzzy](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/). 
 This seemed solid at first, but broke down when teams like Colorado State, Cal State-whatever, and Coppin State all matched
-well with USC. Another approach that came to mind was creating a bag-of-words and using a classifier to make decisions, but
+well with CSU. Another approach that came to mind was creating a bag-of-words and using a classifier to make decisions, but
 that was prone to error and not as satisfactory as I hoped. 
  
 It was at this point I reached out to [Ken Massey](http://www.masseyratings.com/), the statistician that aggregates scores and ranking systems for several
