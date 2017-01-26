@@ -40,9 +40,9 @@ to agreement about them over the course of one weekend. There are practices they
 first and second round rematches of teams who have met in the regular season, in addition to the complex problem of 
 comparatively ranking the teams.
 
-We have, thus, a few things to work with here. An algorithm can be much faster than a weekend. An algorithm can compare many
+We have, thus, a few things to work with here. An algorithm can be much faster than a weekend's worth of time. An algorithm can compare many
 criteria and work across many dimensions to find rankings that satisfy those criteria very quickly. An algorithm can fairly
-place teams on a bracket, and can even check to make sure they've played. And, it can even to some degree meet the "eye test",
+place teams on a bracket, and can even check to make sure they've not played. And, it can even to some degree meet the "eye test",
 taking human poll data (ESPN Coaches, AP) into account to make decisions.
 
 ## The Data
