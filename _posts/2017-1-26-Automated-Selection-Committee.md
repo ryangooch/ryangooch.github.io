@@ -49,6 +49,7 @@ taking human poll data (ESPN Coaches, AP) into account to make decisions.
 
 There has been an explosion in sports ranking systems in recent years, with some respected sources in particular emerging
 from the pack:
+
  * [Kenpom.com](http://kenpom.com/), which relies on team efficiencies and tempos
  * [ESPN's Basketball Power Index (BPI)](http://www.espn.com/mens-college-basketball/bpi), which measures team strength
  accounting for strength of record, pace, site, travel distance, and a few other factors around the circumstances of play
@@ -59,6 +60,7 @@ them with differing methods for team selection, seeding, etc. Our goal is not to
 but to simply explore the possibility of a simple, automated algorithm that can "do better" than the committee. 
  
 There are a few options for where and how to get data. We can:
+
 1. Scrape rankings from web pages, such as kenpom, BPI, etc, or;
 2. We can get a composite rankings from someone who has done this work already.
  
