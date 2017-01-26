@@ -96,6 +96,7 @@ grab it in script form from the Jupyter Notebook. I hope to get this up in a rep
 file [here](https://gist.github.com/ryangooch/db17932967f5b624424d557ac3727773) if you like.
 
 First, we import the necessaries, download the csv, and pull the data into memory.
+
 ``` python
 from urllib.request import urlretrieve
 import numpy as np
