@@ -5,8 +5,6 @@ date: 2017-1-31 14:00:00
 tags: python, pandas, ncaa, ncaa tournament, bracket
 ---
 
-# Automated Bracket Seeding With Python and Pandas: An Update
-
 ## Project Summary
 
 In my last post, I ended with some pie-in-the-sky hare-brained ideas about actually returning to previous work, cleaning up code, and adding functionality. It must be a blue moon because I did it! You can now get the python utility to make your own NCAA brackets [here](https://github.com/ryangooch/automated_ncaa_bb_bracket)! By the way, [my latest bracket]({{ site.baseurl }}/images/bracket2017-01-30.pdf), if you're interested.
