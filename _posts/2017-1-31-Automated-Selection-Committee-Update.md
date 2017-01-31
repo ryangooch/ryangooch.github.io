@@ -1,12 +1,7 @@
 ---
 layout: post
-<<<<<<< HEAD
 title: Automated Bracket Seeding with Python and Pandas - An Update
 date: 2017-1-31 14:00:00
-=======
-title: Automated Bracket Seeding with Python and Pandas: An Update
-date: 2017-01-31 14:00:00
->>>>>>> f3bf8e2d1f916de235a3ffe980d32ebc0d855a31
 tags: python, pandas, ncaa, ncaa tournament, bracket
 ---
 
