@@ -6,11 +6,9 @@ tags: python, pandas, ncaa, ncaa tournament, bracket
 ---
 
 ## Project Summary
-
 In my last post, I ended with some pie-in-the-sky hare-brained ideas about actually returning to previous work, cleaning up code, and adding functionality. It must be a blue moon because I did it! You can now get the python utility to make your own NCAA brackets [here](https://github.com/ryangooch/automated_ncaa_bb_bracket)! By the way, [my latest bracket]({{ site.baseurl }}/images/bracket2017-01-30.pdf), if you're interested.
 
 ## Brackets at a Few Clicks of a Button
-
 I have usage instructions on the github page, but I wanted to expand a little bit on what I'd done. Basically, I moved all the functionality into an easy-to-use python class called ` Bracketeer ` in `bracket_maker.py` at the above repo. The utility follows the workflow of the script essentially, with a download of data, sanitization, calculation of ranks, and saving to Excel workbook.
 
 I chose to expose a few steps to allow some customization. The big one is that the user can now choose whichever computer polls they prefer, and really refine the type of metric they want to build.
