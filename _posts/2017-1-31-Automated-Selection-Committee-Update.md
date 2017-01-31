@@ -2,7 +2,7 @@
 layout: post
 title: Automated Bracket Seeding with Python and Pandas: An Update
 date: 2017-1-31 14:00:00
-author: Ryan Gooch
+tags: python, pandas, ncaa, ncaa tournament, bracket
 ---
 
 # Automated Bracket Seeding With Python and Pandas: An Update
