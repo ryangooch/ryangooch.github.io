@@ -4,6 +4,7 @@ title: Calculating Massey and Colley Ratings on NCAA Basketball Data
 date: 2017-2-12 18:00:00
 tags: python, pandas, ncaa, ncaa tournament, massey, colley
 comments: true
+mathjax: true
 ---
 
 ## Project Summary 
