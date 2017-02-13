@@ -13,7 +13,7 @@ Using data from [Kaggle's Machine Learning Mania]() contest, I calculated Massey
 ## Problem Statement
 In my previous posts I have detailed the process by which I have seeded brackets in the past. The basic process is to download the ranking data from [masseyratings.com](http://www.masseyratings.com/) for all computer and human polls, then aggregate the data with simple formulas to produce a final ranking that could be used to seed a bracket.
 
-My goals in the beginning were to come up with a very simple process that could be implemented to seed an NCAA tournament bracket by hand (technically, Excel) in about an hour's time, or in an automated fashion in seconds. I wanted to refute the Selection Committee's contention that their time constraints, along with the rules for the tournament, led to an extremely difficult weekend of seeding, which might lead to poorly seeded brackets. For this purpose, the above model works. However, there have always been a few issues with this model, including:
+My goals in the beginning was to come up with a very simple process that could be implemented to seed an NCAA tournament bracket by hand (technically, Excel) in about an hour's time, or in an automated fashion in seconds. I wanted to refute the Selection Committee's contention that their time constraints, along with the rules for the tournament, led to an extremely difficult weekend of seeding, which might lead to poorly seeded brackets. For this purpose, the above model works. However, there have always been a few issues with this model, including:
 
 * Aggregating Ranks instead of Ratings
 * Redundant information biasing final results
@@ -23,7 +23,7 @@ There are probably a few more, but these are the two biggest ones I've wanted to
 ### Aggregating Ranks Instead of Ratings
 It might be good to explain the difference between these two related concepts before proceeding. A rank is an ordered list of integers denoting a comparative description of the items in said list. It is a permutation of integers 1 through n, where n is the number of items in the list. A rating is a numerical score for each item in a list, that, when sorted, creates a ranked list.
 
-This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to it shortly.
+This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to them shortly.
 
 | Team         |   | Massey    |   | Colley    |   | Massey_rank |   | Colley_rank |
 |--------------|---|:---------:|---|:---------:|---|:-----------:|---|:-----------:|
@@ -40,7 +40,7 @@ This is better illustrated by a table. Take a look at the following table, which
 
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
-The values in Table 1 were computed as part of the analysis described in this post, and represent the top 10 ranked teams according to the Massey Rating for the entirety of the 2010-11 season. Notice that in the 'Massey" column with have a group of scores, while "Massey Rank" contains ordinal values, with ranks derived directly from the comparative scores of the Massey rating. The same goes for Colley.
+The values in Table 1 were computed as part of the analysis described in this post, and represent the top 10 ranked teams according to the Massey Rating for the entirety of the 2010-11 season. Notice that in the 'Massey" column we have a group of scores, while "Massey Rank" contains ordinal values, with ranks derived directly from the comparative scores of the Massey rating. The same goes for Colley.
 
 So, what's the big deal? The ranks preserve information about the ratings, and all we REALLY want to know is if team A is better than team B, right?
 
@@ -54,7 +54,7 @@ $$
 
 In this case, Ohio State might appear to be 100 % better than Duke, or twice as good! This is unlikely to be true. The distortion aspect comes into play when we look at Louisville vs Syracuse, which makes Louisville appear to be 11% better than Syracuse. By the time you reach teams ranked around the 40 mark (normally the cut-off for at-large teams in the tournament), the difference is even smaller. Again, it's a possibility that this is the distribution of a team's objective ability, but not the only possibility, so it represents a problem.
 
-Another issue is that aggregating ordinal values (ranks) by taking an average coerces them into non-ordinal (but still real) numbers. In other words, it takes ranks and puts an aggregate of ranks into a rating. Which feels statistically dirty to do. In other (other) words, we compare apples to oranges by forcing everything to look like an apple when they're really oranges. Why not compare apples to apples (ratings) and convert to oranges (ranks) at the end? OK that's a pretty terrible though example but it made sense to me earlier today so maybe it will help you. If not, read on, it gets better I promise.
+Another issue is that aggregating ordinal values (ranks) by taking an average coerces them into non-ordinal (but still real) numbers. In other words, it takes ranks and turns them into a rating by the process of aggregation. This feels statistically... dirty? In other (other) words, we compare apples to oranges by forcing everything to look like an apple when they're really oranges, pomegranates, avocados, and watermelon. Why not compare apples to apples (ratings) and convert to oranges (ranks) at the end? OK that's a pretty terrible thought example but it made sense to me earlier today so maybe it will help you. If not, read on, it gets better I promise.
 
 ### Aggregating Ratings, Not Ranks
 So, we want to improve the bracket selection method by aggregating ranks, not ratings. That makes sense. But how do we do that? Well, there are smart ways to do this and we will cover one in the near future. For now, though, we can compute these ratings, but we still can't really compare them. Both Massey and Colley have differing ranges (min to max values), and variances (how much they deviate from whatever their mean is). Luckily, we have a tool at our disposal here: standardization. We can put each array into terms of each's mean value and its variance. Then, we can average the values together for a simple first-pass aggregation.
@@ -82,7 +82,7 @@ From here, it is a little more defensible to do things like take averages and pe
 Unless otherwise noted, I'm following the treatment in the excellent [Who's #1? The Science of Rating and Ranking](http://www.goodreads.com/book/show/13530569-who-s-1-the-science-of-rating-and-ranking) by Amy Langville and Carl Meyer. It should also be noted that [the script I've posted](https://gist.github.com/ryangooch/da9bc9be3d2a5a204b9db2cfc369a128) has some additional analysis and data cleaning to get it into the form I wanted, including some decent date/time manipulation and indexing. Some of the analysis there was based on a [Kaggle Kernel by ralston3](https://www.kaggle.com/ralston3/march-machine-learning-mania-2016/ncaam-exploratory-analysis), so I thank them for their work and allowing some random analyst on the internet to use it and learn a thing or two from it!
 
 ### Massey Ratings
-Massey ratings are based on score differential. The least squares method assumes that we can predict score differential directly by finding the difference in ratings between any two teams. I won't go through the entire mathematical underpinning for this, as the authors of the book did a great job and I'm just summarizing, but the crucial insight is that we can use a simple system of linear equations to compute this ratings. The general form of the equation is
+Massey ratings are based on score differential. The least squares method assumes that we can predict score differential directly by finding the difference in ratings between any two teams. I won't go through the entire mathematical underpinning for this, as the authors of the book did a great job and I'm just summarizing, but the crucial insight is that we can use a simple system of linear equations to compute these ratings. The general form of the equation is
 
 $$
 \begin{equation}
@@ -90,7 +90,7 @@ $$
 \end{equation}
 $$
 
-Here, $$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, $$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and $$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
+Here, $$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, $$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and $$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve the system obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
 
 ### Colley Ratings
 ![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
@@ -122,7 +122,7 @@ $$
 \end{equation}
 $$
 
-$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector $$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form $$ b_i = 1 + \frac{1}{2} ( w_i - l_i) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
+$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector $$ \textbf{b} $$ relates the number of games a team has won versus those it has lost, and each row in the n by 1 vector has the form $$ b_i = 1 + \frac{1}{2} ( w_i - l_i) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
 
 ### "Colley-izing" The Massey Matrix
 We can obtain the Colley matrix from the Massey matrix by a simple formula,
