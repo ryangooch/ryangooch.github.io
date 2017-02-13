@@ -36,6 +36,7 @@ This is better illustrated by a table. Take a look at the following table, which
 |Purdue	|20.6198	|0.931967|	8	|13|
 |Louisville	|19.8196|	0.915334	|9	|15|
 |Syracuse	|19.7607|	0.95558	|10	|9|
+
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
 The values in Table 1 were computed as part of the analysis described in this post, and represent the top 10 ranked teams according to the Massey Rating for the entirety of the 2010-11 season. Notice that in the 'Massey" column with have a group of scores, while "Massey Rank" contains ordinal values, with ranks derived directly from the comparative scores of the Massey rating. The same goes for Colley.
