@@ -26,7 +26,7 @@ It might be good to explain the difference between these two related concepts be
 This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to it shortly.
 
 | Team       | Massey  | Colley  | Massey_rank | Colley_rank |
-| ---------- | ------- | ------- | --------    | ----------- |
+| ---------- |:------- | -------:|:-----------:|:-----------:|
 | Ohio St    | 26.0265 | 1.07358 |   1         |   2         |
 | Duke       | 25.6505 | 1.02081 |   2         |   4         |
 | Kansas     | 25.5452 | 1.07924 |   3         |   1         |
@@ -48,7 +48,7 @@ Well, I'm not so sure. One problem here is, how much *better* is team A than tea
 
 $$
 \begin{equation}
-\texttt{percent difference} = \frac{ \|rank Team A - rank team B \|} {rank team A} * 100 \% \\
+\texttt{percent difference} = \frac{ |rank Team A - rank team B |} {rank team A} * 100 \% \\
 \end{equation}
 $$
 
