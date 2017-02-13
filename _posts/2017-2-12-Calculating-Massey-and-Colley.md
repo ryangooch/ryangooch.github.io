@@ -136,21 +136,21 @@ $$
 This is handy for the computation of these two, as only one matrix must be built, and the other is trivial to obtain.
 
 ## Implementation in Python
-In order to simplify the task, I set out with the goal of calculating the Massey and Colley ratings at the end of the 2011 regular season, to compare those to the seeding of the NCAA tournament that year. With the Kaggle data, I have access to every game between the 2002-03 and 2015-16 seasons in their entirety; the 2011 year stuck out due to some interesting upsets. Butler was at its best in recent memory, reaching the Championship as an 8-seed. Shaka Smart's VCU team reached the Final Four from the 11-seed. Four-seed Kentucky upset number 1 overall Ohio St and 2 seed UNC before falling to the eventual champion 3-seed UConn Huskies, carried on the back of Kemba Walker. 
+In order to simplify the task, I set out with the goal of calculating the Massey and Colley ratings at the end of the 2011 regular season, to compare those to the seeding of the NCAA tournament that year. With the Kaggle data, I have access to every game between the 2002-03 and 2015-16 seasons in their entirety. Specifically, the 2011 year stuck out due to some interesting upsets. Butler was at its best in recent memory, reaching the Championship as an 8-seed. Shaka Smart's VCU team reached the Final Four from the 11-seed play-in game. Four-seed Kentucky upset number 1 overall Ohio St and 2 seed UNC before falling to the eventual champion 3-seed UConn Huskies, carried on the back of Kemba Walker. 
 
 ![2011 NCAA Tournament Final Results]({{ site.baseurl }}/images/ncaa-march-madness-results-2011.jpg "2011 NCAA Tournament Final Results")
 Figure 2. 2011 NCAA Tournament final results, courtesy of [printyourbrackets.com](https://www.printyourbrackets.com/images/ncaa-march-madness-results-2011.jpg)
 
-The data contains many stats from the season, and is organized with game-by-game results where each game has its own row, and stats for both winning and loses teams are included. We are interested only in the final scores for each team in each game (for the Massey rating), and the resulting winner and loser (for the Colley Rating). As usual, I read the data into a pandas DataFrame, and then did some date time manipulation that I will detail in a future post. After ensuring that each team's actual name was joined to the DataFrame (using a SQL-like join in pandas), I was ready to calculate the ratings.
+The data contains many stats from the season, and is organized with game-by-game results where each game has its own row, and stats for both winning and losing teams are included. We are interested only in the final scores for each team in each game (for the Massey rating), and the resulting winner and loser (for the Colley Rating). As usual, I brought the data into a pandas DataFrame, and then did some date-time manipulation that I will detail in a future post. After ensuring that each team's actual name was joined to the DataFrame (using a SQL-like join in pandas), I was ready to calculate the ratings.
 
 Compiling the Massey matrix was the most interesting task from a computing perspective, and I promptly ceded any opportunity to impress with a sleek, highly vectorized, super fast approach, when I opted for the brute force solution. My strategy was essentially:
 
-1) Get a list of all teams in the season
-2) Loop through the list of all teams
-  a) For each team, loop through the list of teams *again* in order to figure out how many times each had played one another
-  b) Store each row in the Massey matrix following the rules above
-3) Store the point differential total over the course of the season for each team (Massey)
-4) Store the win-loss differential over the course of the season for each team (Colley)
+1. Get a list of all teams in the season
+2. Loop through the list of all teams
+--1. For each team, loop through the list of teams *again* in order to figure out how many times each had played one another
+--2. Store each row in the Massey matrix following the rules above
+3. Store the point differential total over the course of the season for each team (Massey)
+4. Store the win-loss differential over the course of the season for each team (Colley)
 
 The code block of interest:
 
@@ -214,7 +214,7 @@ It's... not the prettiest, but hey, it works. I think there is probably a not-so
 ## The Results
 As seen above in Table 2, we can receive a table of ratings for each of these two methods, along with their corresponding ranks, and we can standardize the ratings to allow us to make direct numerical comparisons. Pretty cool!
 
-Analyzing the final results, we see that Kentucky was probably seeded in the right spot if considering only Colley's ranking (14), while the could have been as high as a 2 seed according to the Massey ranking (7). Compared to UNC's Massey ranking (14), perhaps it is unsurprising they were able to defeat them to reach the Final Four. These rankings alone aren't enough to explain Butler's (Massey 57, Colley 41) or VCU's (Massey 92, Colley 59) Final Four trips, so clearly more work is needed to approach some degree of successful predictability for the NCAA Tournament.
+Analyzing the final results, we see that Kentucky was probably seeded in the right spot if considering only Colley's ranking (14), while they could have been as high as a 2 seed according to the Massey ranking (7). Compared to UNC's Massey ranking (14), perhaps it is unsurprising they were able to defeat them to reach the Final Four. These rankings alone aren't enough to explain Butler's (Massey 57, Colley 41) or VCU's (Massey 92, Colley 59) Final Four trips, so clearly more work is needed to approach some degree of successful predictability for the NCAA Tournament.
 
 ## Future Work
-Keep a lookout for more posts as I incorporate more rating methods, explain things that I'll be tweaking, and continued exploration of this dataset. My end goal is a predictive system for March Madness based on aggregating rating systems, so there will be some machine learning coming down the pike, along with more data science.
+Keep a lookout for more posts as I incorporate more rating methods, explain things that I'll be tweaking, and for continued exploration of this dataset. My end goal is a predictive system for March Madness based on aggregating rating systems, so there will be some machine learning coming down the pike, along with more data science.
