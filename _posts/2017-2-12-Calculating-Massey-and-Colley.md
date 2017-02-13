@@ -147,8 +147,8 @@ Compiling the Massey matrix was the most interesting task from a computing persp
 
 1. Get a list of all teams in the season
 2. Loop through the list of all teams
---1. For each team, loop through the list of teams *again* in order to figure out how many times each had played one another
---2. Store each row in the Massey matrix following the rules above
+    1. For each team, loop through the list of teams *again* in order to figure out how many times each had played one another
+    2. Store each row in the Massey matrix following the rules above
 3. Store the point differential total over the course of the season for each team (Massey)
 4. Store the win-loss differential over the course of the season for each team (Colley)
 
