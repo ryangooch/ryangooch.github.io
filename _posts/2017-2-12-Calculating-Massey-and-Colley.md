@@ -48,7 +48,7 @@ Well, I'm not so sure. One problem here is, how much *better* is team A than tea
 
 $$
 \begin{equation}
-\texttt{percent difference} = \frac{ abs\(rank Team A - rank team B\)} {rank team A} * 100 \% \\
+\texttt{percent difference} = \frac{ \left|rank Team A - rank team B \right|} {rank team A} * 100 \% \\
 \end{equation}
 $$
 
@@ -90,7 +90,7 @@ $$
 \end{equation}
 $$
 
-Here, \$\$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
+Here, $$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
 
 ### Colley Ratings
 ![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
