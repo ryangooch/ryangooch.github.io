@@ -87,12 +87,65 @@ $$
 Here, \$$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
 
 ### Colley Ratings
+![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
+
 Wesley Colley set out to find an unbiased estimate of a team's objective value by examing winning percentage. His system, like Massey's, is used in the BCS computer ranking portion for determining bowl berths. The basic idea is that we can use an alteration to the winning percentage formula,
 
 $$
 \begin{equation}
-r_i = \frac^{w_i}_{t_i}
+r_i = \frac{w_i}{t_i}
 \end{equation}
 $$
 
-test2
+With a slight modification to the above formula, we can consider the strength of schedule. The modified formula looks like
+
+$$
+\begin{equation}
+r_i = \frac{1 + w_i}{2 + t_i}
+\end{equation}
+$$
+
+The modification, which is based on Laplace's "rule of succession," has a few benefits. It resolves the beginning of season problem where each team's rating is the nonsensical (and undefined) value \$$ \frac{0}{0} $$, replacing it with a rating of 0.5. Further, if a team loses its first game, its rating is no longer 0; instead it is \$$ \frac{1}{3} $$, which feels more satisfying. Finally, and maybe most importantly, it incorporates the strength of team *i*'s schedule. Without going through the derivation (read up on that if you're interested!), the formula "hides" this factor but in fact incorporates the sum of the rating of all of team *i*'s opponents. This added strength of schedule factor has the nice intuitive property that a team who wins a slew of tough games against good opponents should have a higher rating than a team that blows out a slew of cupcakes.
+
+As above, we end up with a system of linear equations to solve.
+
+$$
+\begin{equation}
+\textbf{C}\textbf{r} = \textbf{b}
+\end{equation}
+$$
+
+\$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector \$$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form \$$ b_i = 1 + \frac{1}{2} \( w_i - l_i\) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
+
+### "Colley-izing" The Massey Matrix
+We can obtain the Colley matrix from the Massey matrix by a simple formula,
+
+$$
+\begin{equation}
+2 \textbf{I} + \textbf{M} = \textbf{C}
+\end{equation}
+$$
+
+This is handy for the computation of these two, as only one matrix must be built, and the other is trivial to obtain.
+
+## Implementation in Python
+In order to simplify the task, I set out with the goal of calculating the Massey and Colley ratings at the end of the 2011 regular season, to compare those to the seeding of the NCAA tournament that year. With the Kaggle data, I have access to every game between the 2002-03 and 2015-16 seasons in their entirety; the 2011 year stuck out due to some interesting upsets. Butler was at its best in recent memory, reaching the Championship as an 8-seed. Shaka Smart's VCU team reached the Final Four from the 11-seed. Four-seed Kentucky upset number 1 overall Ohio St and 2 seed UNC before falling to the eventual champion 3-seed UConn Huskies, carried on the back of Kemba Walker. 
+
+![2011 NCAA Tournament Final Results]({{ site.baseurl }}/images/ncaa-march-madness-results-2011.jpg "2011 NCAA Tournament Final Results")
+
+The data contains many stats from the season, and is organized with game-by-game results where each game has its own row, and stats for both winning and loses teams are included. We are interested only in the final scores for each team in each game (for the Massey rating), and the resulting winner and loser (for the Colley Rating). As usual, I read the data into a pandas DataFrame, and then did some date time manipulation that I will detail in a future post. After ensuring that each team's actual name was joined to the DataFrame (using a SQL-like join in pandas), I was ready to calculate the ratings.
+
+Compiling the Massey matrix was the most interesting task from a computing perspective, and I promptly ceded any opportunity to impress with a sleek, highly vectorized, super fast approach, when I opted for the brute force solution. My strategy was essentially:
+
+1) Get a list of all teams in the season
+2) Loop through the list of all teams
+  a) For each team, loop through the list of teams *again* in order to figure out how many times each had played one another
+  b) Store each row in the Massey matrix following the rules above
+3) Store the point differential total over the course of the season for each team (Massey)
+4) Store the win-loss differential over the course of the season for each team (Colley)
+
+The code block of interest:
+
+```python
+
+```
