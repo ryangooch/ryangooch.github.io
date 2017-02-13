@@ -69,3 +69,28 @@ So what do the standardized ratings look like? Take a look at Table 2.
 |Louisville	|19.8196|	0.915334	|9	|15| 1.959 | 1.798 |
 |Syracuse	|19.7607|	0.95558	|10	|9| 1.953 | 1.972 |
 Table 2. Same as Table 1, with scaled Massey and Colley ratings
+
+From here, it is a little more defensible to do things like take averages and perform other numerical methods of aggregation, which we can do now trivially. However, we're putting the cart before the horse; how do we actually manipulate the data and calculate these Massey and Colley Ratings? What does the math look like?
+
+## Analysis
+Unless otherwise noted, I'm following the treatment in the excellent [Who's #1? The Science of Rating and Ranking](http://www.goodreads.com/book/show/13530569-who-s-1-the-science-of-rating-and-ranking) by Amy Langville and Carl Meyer. It should also be noted that [the script I've posted](https://gist.github.com/ryangooch/da9bc9be3d2a5a204b9db2cfc369a128) has some additional analysis and data cleaning to get it into the form I wanted, including some decent date/time manipulation and indexing. Some of the analysis there was based on a [Kaggle Kernel by ralston3](https://www.kaggle.com/ralston3/march-machine-learning-mania-2016/ncaam-exploratory-analysis), so I thank them for their work and allowing some random analyst on the internet to use it and learn a thing or two from it!
+
+### Massey Ratings
+Massey ratings are based on score differential. The least squares method assumes that we can predict score differential directly by finding the difference in ratings between any two teams. I won't go through the entire mathematical underpinning for this, as the authors of the book did a great job and I'm just summarizing, but the crucial insight is that we can use a simple system of linear equations to compute this ratings. The general form of the equation is
+
+$$
+\begin{equation}
+\textbf{M}\textbf{r} = \textbf{p}
+\end{equation}
+$$
+
+Here, \$$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
+
+### Colley Ratings
+Wesley Colley set out to find an unbiased estimate of a team's objective value by examing winning percentage. His system, like Massey's, is used in the BCS computer ranking portion for determining bowl berths. The basic idea is that we can use an alteration to the winning percentage formula,
+
+$$
+\begin{equation}
+r_i = \frac^{w_i}_{t_i}
+\end{equation}
+$$
