@@ -25,18 +25,18 @@ It might be good to explain the difference between these two related concepts be
 
 This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to it shortly.
 
-| Team         |   | Massey    |   | Colley    | Massey_rank | Colley_rank |
-|--------------|---|-----------|---|----------:|:-----------:|:-----------:|
-| Ohio St      |   | 26.0265   |   | 1.07358   |   1         |   2         |
-| Duke         |   | 25.6505   |   | 1.02081   |   2         |   4         |
-| Kansas       |   | 25.5452   |   | 1.07924   |   3         |   1         |
-| Texas        |   | 22.0774   |   | 0.93496   |   4         |   12        |
-| Pittsburgh   |   | 21.9288   |   | 0.99659   |   5         |    5        |
-| Washington   |   | 21.3346   |   | 0.81365   |    6        |    33       |
-| Kentucky     |   | 20.8808   |   | 0.92145   |   7         |   14        |
-| Purdue       |   | 20.6198   |   | 0.93197   |    8        |   13        |
-| Louisville   |   | 19.8196   |   | 0.91533   |    9        |   15        |
-| Syracuse     |   | 19.7607   |   |0.95558   |   10        |   9         |
+| Team         |   | Massey    |   | Colley    |   | Massey_rank |   | Colley_rank |
+|--------------|---|-----------|---|----------:|---|:-----------:|---|:-----------:|
+| Ohio St      |   | 26.0265   |   | 1.07358   |   |   1         |   |   2         |
+| Duke         |   | 25.6505   |   | 1.02081   |   |   2         |   |   4         |
+| Kansas       |   | 25.5452   |   | 1.07924   |   |   3         |   |   1         |
+| Texas        |   | 22.0774   |   | 0.93496   |   |   4         |   |   12        |
+| Pittsburgh   |   | 21.9288   |   | 0.99659   |   |   5         |   |    5        |
+| Washington   |   | 21.3346   |   | 0.81365   |   |    6        |   |    33       |
+| Kentucky     |   | 20.8808   |   | 0.92145   |   |   7         |   |   14        |
+| Purdue       |   | 20.6198   |   | 0.93197   |   |    8        |   |   13        |
+| Louisville   |   | 19.8196   |   | 0.91533   |   |    9        |   |   15        |
+| Syracuse     |   | 19.7607   |   |0.95558    |   |   10        |   |   9         |
 
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
@@ -61,18 +61,18 @@ So, we want to improve the bracket selection method by aggregating ranks, not ra
 
 So what do the standardized ratings look like? Take a look at Table 2.
 
-|Team|Massey|Colley|Massey_rank|Colley_rank|Massey_scaled|Colley_scaled|
-|---|---|---|---|---|---|---|
-|Ohio St|26.0265|1.07358|1|2|2.572|2.482|
-|Duke|25.6505|1.02081|2|4|2.535|2.254|
-|Kansas|25.5452|1.07924|3|1|2.524|2.507|
-|Texas|22.0774|0.93496|4|12|2.182|1.882|
-|Pittsburgh|21.9288|0.996594|5|5|2.167|2.149|
-|Washington|21.3346|0.813653|6|33|2.108|1.357|
-|Kentucky|20.8808|0.921453|7|14|2.063|1.824|
-|Purdue|20.6198|0.931967|8|13|2.038|1.869|
-|Louisville|19.8196|0.915334|9|15|1.959|1.798|
-|Syracuse|19.7607|0.95558|10|9|1.953|1.972|
+| Team         |   | Massey    |   | Colley    |   | Massey_rank |   | Colley_rank | Massey_scaled |   | Colley_scaled |
+|--------------|---|-----------|---|----------:|---|:-----------:|---|:-----------:|---------------|---|---------------|
+| Ohio St      |   | 26.0265   |   | 1.07358   |   |   1         |   |   2         | 2.572         |---| 2.482         |
+| Duke         |   | 25.6505   |   | 1.02081   |   |   2         |   |   4         | 2.535         |---| 2.254         |
+| Kansas       |   | 25.5452   |   | 1.07924   |   |   3         |   |   1         | 2.524         |---| 2.507         |
+| Texas        |   | 22.0774   |   | 0.93496   |   |   4         |   |   12        | 2.182         |---| 1.882         |
+| Pittsburgh   |   | 21.9288   |   | 0.99659   |   |   5         |   |    5        | 2.167         |---| 2.149         |
+| Washington   |   | 21.3346   |   | 0.81365   |   |    6        |   |    33       | 2.108         |---| 1.357         |
+| Kentucky     |   | 20.8808   |   | 0.92145   |   |   7         |   |   14        | 2.063         |---| 1.824         |
+| Purdue       |   | 20.6198   |   | 0.93197   |   |    8        |   |   13        | 2.038         |---| 1.869         |
+| Louisville   |   | 19.8196   |   | 0.91533   |   |    9        |   |   15        | 1.959         |---| 1.798         |
+| Syracuse     |   | 19.7607   |   |0.95558    |   |   10        |   |   9         | 1.953         |---| 1.972         |
 
 Table 2. Same as Table 1, with scaled Massey and Colley ratings
 
