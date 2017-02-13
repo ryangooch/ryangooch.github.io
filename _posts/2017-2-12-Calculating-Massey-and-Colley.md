@@ -45,11 +45,11 @@ So, what's the big deal? The ranks preserve information about the ratings, and a
 
 Well, I'm not so sure. One problem here is, how much *better* is team A than team B? Ranks don't preserve this information. In fact, I believe that they can *distort* that information. What I mean by that is, the team ranked number 1 by Massey, Ohio St, might appear to be *twice as good* as Duke, if you look at rank alone. We can look at their *percent difference* to see this;
 
+<div>
 $$
-\begin{displaymath}
 \texttt{percent difference} = \frac{\left |rank Team A - rank team B\right |} {rank team A} * 100 \%
-\end{displaymath}
 $$
+<div>
 
 In this case, Ohio State might appear to be 100 % better than Duke, or twice as good! This is unlikely to be true. The distortion aspect comes into play when we look at Louisville vs Syracuse, which makes Louisville appear to be 11% better than Syracuse. By the time you reach teams ranked around the 40 mark (normally the cut-off for at-large teams in the tournament), the difference is even smaller. Again, it's a possibility that this is the distribution of a team's objective ability, but not the only possibility, so it represents a problem.
 
