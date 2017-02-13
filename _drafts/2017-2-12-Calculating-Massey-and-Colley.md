@@ -147,5 +147,64 @@ Compiling the Massey matrix was the most interesting task from a computing persp
 The code block of interest:
 
 ```python
+m_row = 0# current row in Massey matrix
 
+# also build point differential vector p
+p = np.zeros((num_teams,1))
+
+# Colley approach requires b, win differential basically
+b = np.zeros((num_teams,1))
+
+for k in team_name_list :
+    # find all games team played, win or loss
+    team_games = reg2011_df[(reg2011_df['Wteam_name'] == k) | (reg2011_df['Lteam_name'] == k)]
+    n_team = np.shape(team_games)[0]
+    # Number of games team played, for diagonal
+
+    times_played = np.zeros((1,np.shape(M)[1])) # basically an array for given row in M
+    
+    # counter for array indexing
+    ctr = 0
+    for j in team_name_list :
+        if j == k :
+            # this is the team itself
+            times_played[0,ctr] = n_team
+        else :
+            # Find all matches between team of interest (k) and opponent (j)
+            matches = team_games[(team_games['Wteam_name'] == j) | (team_games['Lteam_name'] == j)]
+            times_played[0,ctr] = np.negative(matches.shape[0])
+        ctr += 1
+    
+    # now add current row to M
+    M[m_row] = times_played
+    
+    # add cumulative points to p
+    # p_wins is point differential in games won by team k
+    p_wins = np.sum(\
+        team_games[team_games['Wteam_name'] == k]['Wscore'] - \
+            team_games[team_games['Wteam_name'] == k]['Lscore']
+    )
+    # p_losses is point differential in games lost by team k (will be negative)
+    p_losses = np.sum(\
+        team_games[team_games['Lteam_name'] == k]['Lscore'] - \
+            team_games[team_games['Lteam_name'] == k]['Wscore']
+    )
+    p[m_row] = p_wins + p_losses
+    
+    # Now build Colley right-hand side vector b
+    b[m_row] = 1 + (0.5) * (\
+        team_games[team_games['Wteam_name'] == k].shape[0] - \
+            team_games[team_games['Lteam_name'] == k].shape[0]
+    )
+    
+    # iterate to next row in M
+    m_row += 1
 ```
+
+It's... not the prettiest, but hey, it works. I think there is probably a not-so-hard solution that is much faster than this, but even looking at an entire season for 345 teams, it took just under 2 minutes to perform. I know, the matrix is symmetric, so I could calculate half of it and then have the rest. But I just wanted something that worked and that wasn't TOO slow.
+
+## The Results
+As seen above in Table 2, we can receive a table of ratings for each of these two methods, along with their corresponding ranks, and we can standardize the ratings to allow us to make direct numerical comparisons. Pretty cool!
+
+## Future Work
+Keep a lookout for more posts as I incorporate more rating methods, explain things that I'll be tweaking, and continued exploration of this dataset. My end goal is a predictive system for March Madness based on aggregating rating systems, so there will be some machine learning coming down the pike, along with more data science.
