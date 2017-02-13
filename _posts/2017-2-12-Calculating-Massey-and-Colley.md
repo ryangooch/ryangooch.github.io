@@ -48,7 +48,7 @@ Well, I'm not so sure. One problem here is, how much *better* is team A than tea
 
 $$
 \begin{equation}
-\texttt{percent difference} = \frac{ \left|rank Team A - rank team B \right|} {rank team A} * 100 \% \\
+\texttt{percent difference} = \frac{ \|rank Team A - rank team B \|} {rank team A} * 100 \% \\
 \end{equation}
 $$
 
