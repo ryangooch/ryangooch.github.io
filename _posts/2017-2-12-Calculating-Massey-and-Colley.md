@@ -23,7 +23,7 @@ There are probably a few more, but these are the two biggest ones I've wanted to
 It might be good to explain the difference between these two related concepts before proceeding. A rank is an ordered list of integers denoting a comparative description of the items in said list. It is a permutation of integers 1 through n, where n is the number of items in the list. A rating is a numerical score for each item in a list, that, when sorted, creates a ranked list.
 
 This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to it shortly.
-|------+--------+--------+-------------+-------------|
+
 | Team | Massey | Colley | Massey_rank | Colley_rank |
 |:--------|:-------:|--------:|:--------|:-------:|
 |   Ohio St   |   26.0265    |   1.07358    |   1    |   2    |
@@ -36,7 +36,6 @@ This is better illustrated by a table. Take a look at the following table, which
 |   Purdue    |   20.6198    |   0.931967    |    8    |   13    |
 |   Louisville   |   19.8196    |    0.915334    |    9    |   15    |
 |   Syracuse   |   19.7607   |    0.95558    |   10    |   9    |
-|------+--------+--------+-------------+-------------|
 
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
