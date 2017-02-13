@@ -122,7 +122,7 @@ $$
 \end{equation}
 $$
 
-$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector $$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form $$ b_i = 1 + \frac{1}{2} \( w_i - l_i\) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
+$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector $$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form $$ b_i = 1 + \frac{1}{2} ( w_i - l_i) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
 
 ### "Colley-izing" The Massey Matrix
 We can obtain the Colley matrix from the Massey matrix by a simple formula,
