@@ -45,7 +45,6 @@ So, what's the big deal? The ranks preserve information about the ratings, and a
 
 Well, I'm not so sure. One problem here is, how much *better* is team A than team B? Ranks don't preserve this information. In fact, I believe that they can *distort* that information. What I mean by that is, the team ranked number 1 by Massey, Ohio St, might appear to be *twice as good* as Duke, if you look at rank alone. We can look at their *percent difference* to see this;
 
-(note to self; see http://gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll/ for equation support)
 percent difference = abs((rank Team A - rank team B)) / (rank team A) * 100 %
 
 In this case, Ohio State might appear to be 100 % better than Duke, or twice as good! This is unlikely to be true. The distortion aspect comes into play when we look at Louisville vs Syracuse, which makes Louisville appear to be 11% better than Syracuse. By the time you reach teams ranked around the 40 mark (normally the cut-off for at-large teams in the tournament), the difference is even smaller. Again, it's a possibility that this is the distribution of a team's objective ability, but not the only possibility, so it represents a problem.
@@ -57,18 +56,18 @@ So, we want to improve the bracket selection method by aggregating ranks, not ra
 
 So what do the standardized ratings look like? Take a look at Table 2.
 
-|	Team |	Massey |	Colley |	Massey_rank |	Colley_rank | Massey_scaled | Colley_scaled |
-| --- | --- | --- | --- | --- | --- | --- |
-|Ohio St	|26.0265	|1.07358	|1|2| 2.572 | 2.482 |
-|Duke	|25.6505	|1.02081	|2	|4| 2.535 | 2.254 |
-|Kansas	|25.5452	|1.07924	|3	|1| 2.524 | 2.507 |
-|Texas	|22.0774	|0.93496	|4	|12| 2.182 | 1.882 |
-|Pittsburgh	|21.9288|	0.996594	|5|	5| 2.167 | 2.149 |
-|Washington|	21.3346|	0.813653|	6|	33| 2.108 | 1.357 |
-|Kentucky|	20.8808	|0.921453	|7	|14| 2.063 | 1.824 |
-|Purdue	|20.6198	|0.931967|	8	|13| 2.038 | 1.869 |
-|Louisville	|19.8196|	0.915334	|9	|15| 1.959 | 1.798 |
-|Syracuse	|19.7607|	0.95558	|10	|9| 1.953 | 1.972 |
+|Team|Massey|Colley|Massey_rank|Colley_rank|Massey_scaled|Colley_scaled|
+|---|---|---|---|---|---|---|
+|Ohio St|26.0265|1.07358|1|2|2.572|2.482|
+|Duke|25.6505|1.02081|2|4|2.535|2.254|
+|Kansas|25.5452|1.07924|3|1|2.524|2.507|
+|Texas|22.0774|0.93496|4|12|2.182|1.882|
+|Pittsburgh|21.9288|0.996594|5|5|2.167|2.149|
+|Washington|21.3346|0.813653|6|33|2.108|1.357|
+|Kentucky|20.8808|0.921453|7|14|2.063|1.824|
+|Purdue|20.6198|0.931967|	8|13|2.038|1.869|
+|Louisville|19.8196|0.915334|9|15|1.959|1.798|
+|Syracuse|19.7607|0.95558|10|9|1.953|1.972|
 
 Table 2. Same as Table 1, with scaled Massey and Colley ratings
 
