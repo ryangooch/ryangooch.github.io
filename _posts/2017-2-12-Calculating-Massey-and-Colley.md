@@ -54,6 +54,11 @@ $$
 $$
 </div>
 
+{% raw %}
+<!-- The Normal Distribution -->
+<div class="equation" data-expr="\displaystyle P(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}"></div>
+{% endraw }
+
 In this case, Ohio State might appear to be 100 % better than Duke, or twice as good! This is unlikely to be true. The distortion aspect comes into play when we look at Louisville vs Syracuse, which makes Louisville appear to be 11% better than Syracuse. By the time you reach teams ranked around the 40 mark (normally the cut-off for at-large teams in the tournament), the difference is even smaller. Again, it's a possibility that this is the distribution of a team's objective ability, but not the only possibility, so it represents a problem.
 
 Another issue is that aggregating ordinal values (ranks) by taking an average coerces them into non-ordinal (but still real) numbers. In other words, it takes ranks and puts an aggregate of ranks into a rating. Which feels statistically dirty to do. In other (other) words, we compare apples to oranges by forcing everything to look like an apple when they're really oranges. Why not compare apples to apples (ratings) and convert to oranges (ranks) at the end? OK that's a pretty terrible though example but it made sense to me earlier today so maybe it will help you. If not, read on, it gets better I promise.
