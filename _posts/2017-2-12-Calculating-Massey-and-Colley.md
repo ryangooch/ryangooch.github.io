@@ -214,5 +214,7 @@ It's... not the prettiest, but hey, it works. I think there is probably a not-so
 ## The Results
 As seen above in Table 2, we can receive a table of ratings for each of these two methods, along with their corresponding ranks, and we can standardize the ratings to allow us to make direct numerical comparisons. Pretty cool!
 
+Analyzing the final results, we see that Kentucky was probably seeded in the right spot if considering only Colley's ranking (14), while the could have been as high as a 2 seed according to the Massey ranking (7). Compared to UNC's Massey ranking (14), perhaps it is unsurprising they were able to defeat them to reach the Final Four. These rankings alone aren't enough to explain Butler's (Massey 57, Colley 41) or VCU's (Massey 92, Colley 59) Final Four trips, so clearly more work is needed to approach some degree of successful predictability for the NCAA Tournament.
+
 ## Future Work
 Keep a lookout for more posts as I incorporate more rating methods, explain things that I'll be tweaking, and continued exploration of this dataset. My end goal is a predictive system for March Madness based on aggregating rating systems, so there will be some machine learning coming down the pike, along with more data science.
