@@ -47,9 +47,9 @@ So, what's the big deal? The ranks preserve information about the ratings, and a
 Well, I'm not so sure. One problem here is, how much *better* is team A than team B? Ranks don't preserve this information. In fact, I believe that they can *distort* that information. What I mean by that is, the team ranked number 1 by Massey, Ohio St, might appear to be *twice as good* as Duke, if you look at rank alone. We can look at their *percent difference* to see this;
 
 $$
-\begin{align*}
+\begin{equation}
 \texttt{percent difference} = \frac{ abs\(rank Team A - rank team B\)} {rank team A} * 100 \% \\
-\end{align}
+\end{equation}
 $$
 
 In this case, Ohio State might appear to be 100 % better than Duke, or twice as good! This is unlikely to be true. The distortion aspect comes into play when we look at Louisville vs Syracuse, which makes Louisville appear to be 11% better than Syracuse. By the time you reach teams ranked around the 40 mark (normally the cut-off for at-large teams in the tournament), the difference is even smaller. Again, it's a possibility that this is the distribution of a team's objective ability, but not the only possibility, so it represents a problem.
@@ -85,12 +85,12 @@ Unless otherwise noted, I'm following the treatment in the excellent [Who's #1? 
 Massey ratings are based on score differential. The least squares method assumes that we can predict score differential directly by finding the difference in ratings between any two teams. I won't go through the entire mathematical underpinning for this, as the authors of the book did a great job and I'm just summarizing, but the crucial insight is that we can use a simple system of linear equations to compute this ratings. The general form of the equation is
 
 $$
-\begin{align*}
+\begin{equation}
 \textbf{M} \textbf{r} = \textbf{p}
-\end{align}
+\end{equation}
 $$
 
-Here, \$$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
+Here, \$\$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
 
 ### Colley Ratings
 ![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
@@ -100,7 +100,7 @@ Wesley Colley set out to find an unbiased estimate of a team's objective value b
 
 $$
 \begin{equation}
-r_i = \frac{w_i}{t_i}
+r_i = \frac{w_i}{t_i} \\
 \end{equation}
 $$
 
