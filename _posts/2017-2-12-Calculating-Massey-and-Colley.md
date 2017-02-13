@@ -69,6 +69,7 @@ So what do the standardized ratings look like? Take a look at Table 2.
 |Purdue	|20.6198	|0.931967|	8	|13| 2.038 | 1.869 |
 |Louisville	|19.8196|	0.915334	|9	|15| 1.959 | 1.798 |
 |Syracuse	|19.7607|	0.95558	|10	|9| 1.953 | 1.972 |
+
 Table 2. Same as Table 1, with scaled Massey and Colley ratings
 
 From here, it is a little more defensible to do things like take averages and perform other numerical methods of aggregation, which we can do now trivially. However, we're putting the cart before the horse; how do we actually manipulate the data and calculate these Massey and Colley Ratings? What does the math look like?
@@ -113,7 +114,7 @@ As above, we end up with a system of linear equations to solve.
 
 $$
 \begin{equation}
-\textbf{C}\textbf{r} = \textbf{b}
+\textbf{C}\textbf{r} = \textbf{b} \\
 \end{equation}
 $$
 
