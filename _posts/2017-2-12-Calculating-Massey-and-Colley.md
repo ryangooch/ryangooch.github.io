@@ -40,6 +40,8 @@ This is better illustrated by a table. Take a look at the following table, which
 
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
+<span style="color:red">red</span>
+
 The values in Table 1 were computed as part of the analysis described in this post, and represent the top 10 ranked teams according to the Massey Rating for the entirety of the 2010-11 season. Notice that in the 'Massey" column with have a group of scores, while "Massey Rank" contains ordinal values, with ranks derived directly from the comparative scores of the Massey rating. The same goes for Colley.
 
 So, what's the big deal? The ranks preserve information about the ratings, and all we REALLY want to know is if team A is better than team B, right?
