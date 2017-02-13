@@ -88,6 +88,7 @@ Here, \$$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the numb
 
 ### Colley Ratings
 ![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
+Figure 1. Border collie with a basketball-styled toy. For my next trick, I'll rank collies! I may have a problem when I run into the inevitable tie, as all collies are number 1. Pic courtesy of [dogtime.com](http://cdn1-www.dogtime.com/assets/uploads/gallery/border-collie-dog-breed-pictures/2-puppy.jpg)
 
 Wesley Colley set out to find an unbiased estimate of a team's objective value by examing winning percentage. His system, like Massey's, is used in the BCS computer ranking portion for determining bowl berths. The basic idea is that we can use an alteration to the winning percentage formula,
 
@@ -132,6 +133,7 @@ This is handy for the computation of these two, as only one matrix must be built
 In order to simplify the task, I set out with the goal of calculating the Massey and Colley ratings at the end of the 2011 regular season, to compare those to the seeding of the NCAA tournament that year. With the Kaggle data, I have access to every game between the 2002-03 and 2015-16 seasons in their entirety; the 2011 year stuck out due to some interesting upsets. Butler was at its best in recent memory, reaching the Championship as an 8-seed. Shaka Smart's VCU team reached the Final Four from the 11-seed. Four-seed Kentucky upset number 1 overall Ohio St and 2 seed UNC before falling to the eventual champion 3-seed UConn Huskies, carried on the back of Kemba Walker. 
 
 ![2011 NCAA Tournament Final Results]({{ site.baseurl }}/images/ncaa-march-madness-results-2011.jpg "2011 NCAA Tournament Final Results")
+Figure 2. 2011 NCAA Tournament final results, courtesy of [printyourbrackets.com](https://www.printyourbrackets.com/images/ncaa-march-madness-results-2011.jpg)
 
 The data contains many stats from the season, and is organized with game-by-game results where each game has its own row, and stats for both winning and loses teams are included. We are interested only in the final scores for each team in each game (for the Massey rating), and the resulting winner and loser (for the Colley Rating). As usual, I read the data into a pandas DataFrame, and then did some date time manipulation that I will detail in a future post. After ensuring that each team's actual name was joined to the DataFrame (using a SQL-like join in pandas), I was ready to calculate the ratings.
 
