@@ -90,7 +90,7 @@ $$
 \end{equation}
 $$
 
-Here, $$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, \$$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and \$$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
+Here, $$ \textbf{M} $$ is the Massey matrix of size n by n, where n is the number of teams in the league, $$ \textbf{p} $$ is an n by 1 vector containing the sum of the point differentials for all the games each team has played, and $$ \textbf{r} $$ is the ratings vector, also n by 1, that we are trying to solve and obtain. The Massey matrix itself contains along the diagonal all games each team has played, with off diagonal elements recording the negation of the number of games any two teams have played. Since there are around 350 teams in D1 basketball, and no team plays more than 31 games in a regular season, most of the off-diagonal elements in the Massey matrix are 0, meaning the matrix itself is sparse. Due to the properties of the matrix, however, we cannot simply invert it to solve the linear systeam of equations without replacing one line in the matrix with 1 in every element, and the corresponding point differential value with 0. This allows a unique solution to the linear equation above, and we can easily solve for the ratings vector.
 
 ### Colley Ratings
 ![Border Collie]({{ site.baseurl }}/images/border-collie-with-basketball.jpg "Border Collie")
@@ -112,17 +112,17 @@ r_i = \frac{1 + w_i}{2 + t_i}
 \end{equation}
 $$
 
-The modification, which is based on Laplace's "rule of succession," has a few benefits. It resolves the beginning of season problem where each team's rating is the nonsensical (and undefined) value \$$ \frac{0}{0} $$, replacing it with a rating of 0.5. Further, if a team loses its first game, its rating is no longer 0; instead it is \$$ \frac{1}{3} $$, which feels more satisfying. Finally, and maybe most importantly, it incorporates the strength of team *i*'s schedule. Without going through the derivation (read up on that if you're interested!), the formula "hides" this factor but in fact incorporates the sum of the rating of all of team *i*'s opponents. This added strength of schedule factor has the nice intuitive property that a team who wins a slew of tough games against good opponents should have a higher rating than a team that blows out a slew of cupcakes.
+The modification, which is based on Laplace's "rule of succession," has a few benefits. It resolves the beginning of season problem where each team's rating is the nonsensical (and undefined) value $$ \frac{0}{0} $$, replacing it with a rating of 0.5. Further, if a team loses its first game, its rating is no longer 0; instead it is $$ \frac{1}{3} $$, which feels more satisfying. Finally, and maybe most importantly, it incorporates the strength of team *i*'s schedule. Without going through the derivation (read up on that if you're interested!), the formula "hides" this factor but in fact incorporates the sum of the rating of all of team *i*'s opponents. This added strength of schedule factor has the nice intuitive property that a team who wins a slew of tough games against good opponents should have a higher rating than a team that blows out a slew of cupcakes.
 
 As above, we end up with a system of linear equations to solve.
 
 $$
 \begin{equation}
-\textbf{C}\textbf{r} = \textbf{b} \\
+\textbf{C}\textbf{r} = \textbf{b} 
 \end{equation}
 $$
 
-\$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector \$$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form \$$ b_i = 1 + \frac{1}{2} \( w_i - l_i\) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
+$$ \textbf{C} $$ is the Colley matrix, which, similarly to the Massey matrix, is n by n, and describes the number of games played by each team (plus 2) along the diagonal, with the negation of the number of times each team played another. The vector $$ \textbf{b} $$ relates the number of games a team has one versus those it has lost, and each row in the n by 1 vector has the form $$ b_i = 1 + \frac{1}{2} \( w_i - l_i\) $$. In this system, the Colley matrix is invertible, implying a unique solution, so it requires no replacement arrays to massage it into the form we want.
 
 ### "Colley-izing" The Massey Matrix
 We can obtain the Colley matrix from the Massey matrix by a simple formula,
