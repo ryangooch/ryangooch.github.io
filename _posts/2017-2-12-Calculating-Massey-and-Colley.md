@@ -26,17 +26,17 @@ It might be good to explain the difference between these two related concepts be
 This is better illustrated by a table. Take a look at the following table, which reports 5 teams from the 2010-11 NCAA basketball season, with associated ranks and ratings. Don't worry about what Massey and Colley mean for now! We will come back around to it shortly.
 
 | Team       | Massey  | Colley  | Massey_rank | Colley_rank |
-|------------|:--------|--------:|:-----------:|:-----------:|
-| Ohio St    | 26.0265 | 1.07358 |   1         |   2         |
-| Duke       | 25.6505 | 1.02081 |   2         |   4         |
-| Kansas     | 25.5452 | 1.07924 |   3         |   1         |
-| Texas      | 22.0774 | 0.93496 |   4         |   12        |
-| Pittsburgh | 21.9288 | 0.99659 |   5         |    5        |
-| Washington | 21.3346 | 0.81365 |    6        |    33       |
-| Kentucky   | 20.8808 | 0.92145 |   7         |   14        |
-| Purdue     | 20.6198 | 0.93197 |    8        |   13        |
-| Louisville | 19.8196 | 0.91533 |    9        |   15        |
-| Syracuse   | 19.7607 | 0.95558 |   10        |   9         |
+|--------------|:----------|----------:|:-----------:|:-----------:|
+| Ohio St      | 26.0265   | 1.07358   |   1         |   2         |
+| Duke         | 25.6505   | 1.02081   |   2         |   4         |
+| Kansas       | 25.5452   | 1.07924   |   3         |   1         |
+| Texas        | 22.0774   | 0.93496   |   4         |   12        |
+| Pittsburgh   | 21.9288   | 0.99659   |   5         |    5        |
+| Washington   | 21.3346   | 0.81365   |    6        |    33       |
+| Kentucky     | 20.8808   | 0.92145   |   7         |   14        |
+| Purdue       | 20.6198   | 0.93197   |    8        |   13        |
+| Louisville   | 19.8196   | 0.91533   |    9        |   15        |
+| Syracuse     | 19.7607   | 0.95558   |   10        |   9         |
 
 Table 1. Selection of teams with ratings and rankings from 2011 NCAA basketball season
 
