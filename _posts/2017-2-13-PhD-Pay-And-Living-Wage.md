@@ -68,4 +68,3 @@ And the bottom 5,
 |5  |   |Vermont               |   | Burlington, VT   |   | 0.91               |
 
 The data in the chart above indicated that universities did not appear to pay in keeping with cost of living, which might lead us to expect that the best salary/living wage ratios occur in areas where the cost of living is lower. In the top 5 table, we see that the best ratios are in lower cost of living areas, with top tier universities. The bottom 5 salaries include two of the highest cost of living areas in the US, in DC and Boston. Burlington, VT, is another expensive area, though I'm not totally sure what's going on with Arkansas, in general or with respect to this analysis. Perhaps salaries are more correlated with university prestige than cost of living? Maybe that is an exploration for another day.
-{: .text-justify}
