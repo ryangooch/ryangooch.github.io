@@ -7,11 +7,9 @@ comments: true
 ---
 
 ## Project Summary
-
 I compiled a dataset of graduate research assistant salaries from 85 public and private universities in the United States, along with living wage data for each university location. I discovered that in general, average grad student pay at these universities did not correlate closely with living wage in their areas.
 
 ## What's The Problem?
-
 I started thinking about this a few weeks ago, but it appears that no consideration was made in my graduate assistant salary for the cost of living in my town, Fort Collins, CO. For years there has been a trend in this city, and others in Colorado, of people moving in from other areas, far more than those leaving. It makes sense. Colorado is an amazing place to live for so many reasons; natural beauty, healthy residents, 300 days of sun, and the list goes on. This has put some unpleasant pressures on the economy, however, in two very significant ways. The influx of people was so great that the residency vacancy rate plummeted, killing the supply of open houses, and raising home and property prices immensely. 
 
 ![Fort Collins in the Spring]({{ site.baseurl }}/images/ft_collins_spring.jpg "Fort Collins in the Spring")
