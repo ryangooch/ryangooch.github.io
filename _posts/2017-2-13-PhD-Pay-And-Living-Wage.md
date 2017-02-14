@@ -44,7 +44,7 @@ According to this particular data, the answer to that appears to be 'no'. I plot
 
 Figure 2. GRA Salaries vs Living Wage at 85 selected universities in the US.
 
-Given the relatively low correlation value, it might be concluded that while some universities attempt to pay commesurately with cost of living, overall, universities don't seem to notice or care. There is a visible trend, but it is also not a convincing one. Of course in this analysis many confounding variables aren't considered, such as school prestige, controlling for different majors, and experience levels, but as a first pass with available data, this appears to be an interesting result.
+Given the relatively low correlation value, it might be concluded that while some universities attempt to pay commensurately with cost of living, overall, universities don't seem to notice or care. There is a visible trend, but it is also not a convincing one. Of course in this analysis many confounding variables aren't considered, such as school prestige, controlling for different majors, and experience levels, but as a first pass with available data, this appears to be an interesting result.
 
 ## Final Thoughts
 In the dataset linked above you will find a ratio that I calculated comparing GRA salary and 1 Adult living wage, in an effort to quantify how well each school did. A value of 1 indicates that the salary is equal to the living wage, and higher values indicate better wages relative to cost of living. The top 5 schools in this dataset by this metric were:
