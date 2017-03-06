@@ -60,13 +60,13 @@ Following these steps, I could use cosine similarity to compare a particular set
 ## So How Does It Taste?
 I can choose any beer in the database, but decided to use Fort Collins beers as my ~~taste~~ test case. First up is Odell's 90 Shilling, their flagship beer, an amber ale. The resulting most similar craft beers are:
 
-| Name                  | Similarity |
-| --------------------- | ---------- |
-| 90 Shilling           | 1.00       |
-| Harvester Pumpkin Ale | 0.41       |
-| Scotch Ale            | 0.39       |
-| Leisure Winter Ale    | 0.38       |
-| Etna                  | 0.38       |
+| Name                  |     | Similarity |
+| --------------------- | --- | ---------- |
+| 90 Shilling           |     | 1.00       |
+| Harvester Pumpkin Ale |     | 0.41       |
+| Scotch Ale            |     | 0.39       |
+| Leisure Winter Ale    |     | 0.38       |
+| Etna                  |     | 0.38       |
 
 I omitted the descriptions and breweries here, but I will say this is a pretty reasonable top 5. Four of these are amber ales, and all 5 are described as "medium-bodied". The Pumpkin Ale is a bit of an outlier, but if you like 90 Shilling, then you would have a good Autumn beer to try out next time it is in season. The Scotch Ale is a bit different than the Amber Ale, but it was included since in mentioned it had a rich flavor and was medium-bodied. Etna and the Winter Ale both boast a balance with hop flavor. 
 
@@ -84,13 +84,13 @@ Both look pretty tasty to me, and you can see where the similarity exists in the
 
 For those bitter fans out there, upset I haven't included you, take a look at the beers most similar to Odell's Myrcenary IPA:
 
-| Name                  | Similarity |
-| --------------------- | ---------- |
-| Myrcenary             | 1.00       |
-| El Dorado IPA         | 0.69       |
-| Neanderthal           | 0.66       |
-| Flip Your Whig        | 0.66       |
-| La Salamandre         | 0.66       |
+| Name                  |     | Similarity |
+| --------------------- | --- | ---------- |
+| Myrcenary             |     | 1.00       |
+| El Dorado IPA         |     | 0.69       |
+| Neanderthal           |     | 0.66       |
+| Flip Your Whig        |     | 0.66       |
+| La Salamandre         |     | 0.66       |
 
 Here the algorithm exhibits some weakness, keying in on the term 'Double IPA'. In fact, Neanderthal and Flip Your Whig contain only that text as their entire description. That doesn't mean they're bad things to try, just that the algorithm is recommending based exclusively on that. Going a little further down, however, we get a nice description for Fully Adrift Double IPA (similarity = 0.66),
 
@@ -104,13 +104,13 @@ These look like two good beers to try for those hopped-up fans out there.
 
 Finally, let's check out a sour, for all you sour lovers out there. I'll focus on Le Terroir from New Belgium.
 
-| Name                    | Similarity |
-| ----------------------- | ---------- |
-| Le Terroir              | 1.00       |
-| Old Guardian Dry Hopped | 0.40       |
-| Sideshow                | 0.38       |
-| Black is the New Wit    | 0.38       |
-| Barrel Aged Elysium     | 0.35       |
+| Name                    |     | Similarity |
+| ----------------------- | --- | ---------- |
+| Le Terroir              |     | 1.00       |
+| Old Guardian Dry Hopped |     | 0.40       |
+| Sideshow                |     | 0.38       |
+| Black is the New Wit    |     | 0.38       |
+| Barrel Aged Elysium     |     | 0.35       |
 
 This is an interesting collection featuring a few sours, a wit, and an imperial stout. The keywords of importance seemed to have been barrel-aged and sour-ale. It's not maybe as interesting a result as it could be, but I don't see these as bad suggestions. I think the sour collection in the database in general needs some help, as either many sours are excluded in the dataset, or fell victim to my description filter.
 
