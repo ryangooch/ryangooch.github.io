@@ -21,23 +21,23 @@ Figure 1. Odell Beer Patio, dog- and kid-friendly tap areas like this pepper the
 
 My approach was like many others.
 
-  1) Meet up with friends.
-  2) Pick out a brewery.
-  3) Bike to said brewery on one of the many gorgerous Fort Collins afternoons.
-  4) Try beers at pseudo-random until I found a few styles I liked.
-  5) Try some crazy beers (spicy chocolate stouts ftw)
-  6) Go for a tour
-  7) Walk my bike home
+  1. Meet up with friends.
+  2. Pick out a brewery.
+  3. Bike to said brewery on one of the many gorgerous Fort Collins afternoons.
+  4. Try beers at pseudo-random until I found a few styles I liked.
+  5. Try some crazy beers (spicy chocolate stouts ftw)
+  6. Go for a tour
+  7. Walk my bike home
   
 This is a fun strategy, and is a great way to spend a Saturday in the Front Range. But it seems inefficient, especially in this age of computing power, analytics, and Big Data, right? Surely, there is a beer database with which we can intelligently find beers we like using some form of a recommendation system? It turns out, we can!
 
 ## Drunken Machine Learning
 I had this great idea for a "Pandora of beer" a while back, where you could input a few beers you like and dislike, then have beers recommended to you. This is an entirely reasonable task, but not something I've ever devoted much time to realizing. Maybe one day. For now, though, I figured an interesting task might be to simply query a database for similar beers to a given input as a way to inform someone as to other beers they might like. The basic process was as follows:
 
-  1) Download information on a bunch of craft beers
-  2) Massage the data into a format that was useful
-  3) Use keywords from the descriptions of the beers to find pairwise similarities
-  4) Store the top 20 similar beers for each
+  1. Download information on a bunch of craft beers
+  2. Massage the data into a format that was useful
+  3. Use keywords from the descriptions of the beers to find pairwise similarities
+  4. Store the top 20 similar beers for each
   
 ### Ingesting Tens of Thousands of Beers
 In order to get the beer data in, I went through the usual thought processes. Is there an open data set somewhere for this? Should I try to scrape the information from [ratebeer.com](https://www.ratebeer.com/) or [beeradvocate.com](https://www.beeradvocate.com/), assuming they were OK with it? Is there are API I can take advantage of?
@@ -49,19 +49,13 @@ I downloaded information on all the beers they had, then coerced the data into a
 ### Hopping To Analysis
 I relied on my knowledge from previous projects for the natural language processing aspects, such as [What's Cooking](https://www.kaggle.com/c/whats-cooking), as well as some resources I found online, including [ultravioletanalytics.com](http://www.ultravioletanalytics.com/2016/11/18/tf-idf-basics-with-pandas-scikit-learn/) and [untrod.com](http://blog.untrod.com/2016/06/simple-similar-products-recommendation-engine-in-python.html). My text processing approach was to
 
-  1) Use the fabulous [Natural Language Toolkit](http://www.nltk.org/) to find the stems (or roots) of the words in the descriptions;
-  2) Employ [scikit-learn's CountVectorizer](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) to count up the number of occurrences of keywords, and;
-  3) Use [term-frequency inverse-document-frequency](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer) to assign weights to each keyword
+  1. Use the fabulous [Natural Language Toolkit](http://www.nltk.org/) to find the stems (or roots) of the words in the descriptions;
+  2. Employ [scikit-learn's CountVectorizer](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) to count up the number of occurrences of keywords, and;
+  3. Use [term-frequency inverse-document-frequency](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer) to assign weights to each keyword
   
 Following these steps, I could use cosine similarity to compare a particular set of keywords for a particular beer to the dataset and grab the top most similar beers to it. I decided to compute this "on the fly", since for one thing, computing it for each entry at once resulted in MemoryErrors, and while I found a few methods around this, I decided it wasn't exactly worth it, when computing one at a time is extremely fast and all I'll need (for now).
 
 [Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity) itself is a measure of the orientation of one vector with another. The cosine angle between the two vectors would give similarity result, and this value ranges from 0 to 1, where 1 is perfect similarity and 0 is totally different. Magnitude is irrelevant here, which is kind of nice for our case; we don't really care about magnitude, just the relative distributions of keyword weights. 
-
-$$
-\begin{equation}
-\texttt{similarity} = \cos{\theta}= \frac{ \textbf{A} \dot \textbf{B}} { || \textbf{A} || || \textbf{B} || } \\
-\end{equation}
-$$
 
 ## So How Does It Taste?
 I can choose any beer in the database, but decided to use Fort Collins beers as my ~~taste~~ test case. First up is Odell's 90 Shilling, their flagship beer, an amber ale. The resulting most similar craft beers are:
